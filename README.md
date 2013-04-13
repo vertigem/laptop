@@ -20,19 +20,6 @@ for Lion (OS X 10.7) or Mountain Lion (OS X 10.8).
 
     chsh -s /bin/zsh
 
-### Linux
-
-We support:
-
-* The latest Ubuntu LTS release (currently
-  [precise](https://wiki.ubuntu.com/PrecisePangolin/ReleaseNotes)),
-* The latest Ubuntu non-LTS release (currently
-  [quantal](https://wiki.ubuntu.com/QuantalQuetzal/ReleaseNotes)), and
-* Debian testing (currently [wheezy](http://www.debian.org/releases/testing/)).
-
-1) Install zsh and set it as your login shell:
-
-    bash <(wget -qO- https://raw.github.com/thoughtbot/laptop/master/linux-prerequisites)
 
 Install
 -------
@@ -42,12 +29,6 @@ Install
 Read, then run the script:
 
     zsh <(curl -s https://raw.github.com/thoughtbot/laptop/master/mac)
-
-### Linux
-
-Read, then run the script:
-
-    zsh <(wget -qO- https://raw.github.com/thoughtbot/laptop/master/linux)
 
 What it sets up
 ---------------
