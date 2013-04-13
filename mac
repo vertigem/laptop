@@ -25,8 +25,8 @@ if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
 fi
 
 fancy_echo "Install Postgres.app, a good open source relational database ..."
-  successfully curl -L http://postgresapp.com/download -o /tmp/Postgres.app.zip 
-  successfully unzip /tmp/Postgres.app.zip -d /tmp/Postgres 
+  successfully curl -L http://postgresapp.com/download -o /tmp/Postgres.app.zip
+  successfully unzip /tmp/Postgres.app.zip -d /tmp/Postgres
   successfully mv /tmp/Postgres/Postgres.app /Applications
 
 fancy_echo "Install Redis, a good key-value database ..."
@@ -101,3 +101,30 @@ if ! grep -qs "DO NOT EDIT BELOW THIS LINE" ~/.zshrc; then
   fancy_echo "Prepare ~/.zshrc for http://github.com/thoughtbot/dotfiles ..."
     successfully echo "# DO NOT EDIT BELOW THIS LINE\n" >> ~/.zshrc
 fi
+
+fancy_echo "Install iTerm2, a amazing terminal emulator"
+  successfully curl http://iterm2.googlecode.com/files/iTerm2-1_0_0_20130319.zip -o /tmp/iTerm2.zip
+  successfully unzip /tmp/iTerm2.zip -d /tmp/iTerm
+  successfully mv /tmp/iTerm/iTerm.app /Applications
+
+fancy_echo "Install oh-my-zsh, improve your zsh"
+  successfully git clone https://github.com/dukex/oh-my-zsh.git ~/.oh-my-zsh
+  successfully echo 'source ~/.oh-my-zsh/zshrc' >> ~/.zshrc
+  successfully source ~/.zshrc
+
+fancy_echo "Create ~/code folder, because I started watching railscasts"
+  successfully mkdir ~/code
+
+fancy_echo "Config dotfiles, dukex amazing gitconfig, simple vimrc and the cool gemrc"
+  successfully curl -L https://raw.github.com/dukex/dotfiles/master/gitconfig -o ~/.gitconfig
+  successfully curl -L https://raw.github.com/dukex/dotfiles/master/vimrc -o ~/.vimrc
+  successfully curl -L https://raw.github.com/dukex/dotfiles/master/gemrc -o ~/.vimrc
+
+fancy_echo "Configure Vim, I'm not hipster"
+  successfully git clone https://github.com/dukex/vimfiles.git ~/.vim
+
+fancy_echo "Download Sublime Text 2, everybody loves the mainstream"
+  successfully curl -L 'http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.1.dmg' -o /tmp/SublimeText.dmg
+  successfully open /tmp/SublimeText.dmg
+
+
