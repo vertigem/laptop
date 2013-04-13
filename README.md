@@ -48,6 +48,11 @@ What it sets up
 * The Silver Searcher for finding things in files
 * Tmux for saving project state and switching between projects
 * Watch for periodically executing a program and displaying the output
+* iTerm2 powerful terminal emulator
+* oh-my-zsh for improve your shell
+* Configure gitconfig, vimrc and gemrc
+* Vimfiles 
+* Sublime Text 2, the elegant and powerful editor
 
 It should take less than 15 minutes to install (depends on your machine).
 
