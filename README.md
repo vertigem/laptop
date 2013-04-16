@@ -51,8 +51,9 @@ What it sets up
 * iTerm2 powerful terminal emulator
 * oh-my-zsh for improve your shell
 * Configure gitconfig, vimrc and gemrc
-* Vimfiles 
+* Vimfiles
 * Sublime Text 2, the elegant and powerful editor
+* Mou.app, the missing Markdown editor for web developers
 
 It should take less than 15 minutes to install (depends on your machine).
 
