@@ -145,3 +145,5 @@ fancy_echo "Install Transmission, you know, torrents..."
   successfully curl -L http://download.transmissionbt.com/files/Transmission-2.77.dmg -o /tmp/transmission.dmg
   successfully open /tmp/transmission.dmg
 
+fancy_echo "Open Wunderlist link...."
+  successfully open http://appstore.com/mac/Wunderlist

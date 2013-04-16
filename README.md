@@ -55,6 +55,8 @@ What it sets up
 * Sublime Text 2, the elegant and powerful editor
 * Mou.app, the missing Markdown editor for web developers
 * Transmission.app, torrents...
+* Wunderlist, beautiful and simple online to-do list app
+
 
 It should take less than 15 minutes to install (depends on your machine).
 
