@@ -140,3 +140,8 @@ fancy_echo "Install Mou, The missing Markdown editor for web developers"
   successfully curl -L 'http://mouapp.com/download/Mou.zip' -o '/tmp/mou.zip'
   successfully unzip /tmp/mou.zip -d /tmp/mou
   successfully mv /tmp/mou/Mou.app /Applications
+
+fancy_echo "Install Transmission, you know, torrents..."
+  successfully curl -L http://download.transmissionbt.com/files/Transmission-2.77.dmg -o /tmp/transmission.dmg
+  successfully open /tmp/transmission.dmg
+
