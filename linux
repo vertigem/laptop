@@ -28,6 +28,13 @@ fancy_echo "Changing your shell to zsh ..."
 fancy_echo "Your shell will now restart to apply changes."
   exec `which zsh` -l
   
+fancy_echo "Installing base ruby build dependencies ..."
+  sudo aptitude build-dep -y ruby1.9.3
+
+fancy_echo "Installing libraries for common gem dependencies ..."
+  sudo aptitude install -y libxslt1-dev libcurl4-openssl-dev libksba8 libksba-dev libqtwebkit-dev libreadline-dev
+
+
 
 fancy_echo "Installing vim ..."
   sudo aptitude install -y vim-gtk
