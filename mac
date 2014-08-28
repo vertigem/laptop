@@ -16,6 +16,7 @@ fi
 fancy_echo "Install Homebrew, a good OS X package manager ..."
   successfully ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
   successfully brew update
+  successfully brew install caskroom/cask/brew-cask
 
 if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
   fancy_echo "Put Homebrew location earlier in PATH ..."
@@ -25,9 +26,7 @@ if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
 fi
 
 fancy_echo "Install Postgres.app, a good open source relational database ..."
-  successfully curl -L http://postgresapp.com/download -o /tmp/Postgres.app.zip
-  successfully unzip /tmp/Postgres.app.zip -d /tmp/Postgres
-  successfully mv /tmp/Postgres/Postgres.app /Applications
+  successfully brew cask install postgres
 
 fancy_echo "Install Redis, a good key-value database ..."
   successfully brew install redis
@@ -37,12 +36,6 @@ fancy_echo "Install The Silver Searcher (better than ack or grep) for searching 
 
 fancy_echo "Install ctags, for indexing files for vim tab completion of methods, classes, variables ..."
   successfully brew install ctags
-
-fancy_echo "Install tmux, for saving project state and switching between projects ..."
-  successfully brew install tmux
-
-fancy_echo "Install reattach-to-user-namespace, for copy-paste and RubyMotion compatibility with tmux ..."
-  successfully brew install reattach-to-user-namespace
 
 fancy_echo "Install ImageMagick, for cropping and re-sizing images ..."
   successfully brew install imagemagick
@@ -106,9 +99,7 @@ if ! grep -qs "DO NOT EDIT BELOW THIS LINE" ~/.zshrc; then
 fi
 
 fancy_echo "Install iTerm2, a amazing terminal emulator"
-  successfully curl http://iterm2.googlecode.com/files/iTerm2-1_0_0_20130319.zip -o /tmp/iTerm2.zip
-  successfully unzip /tmp/iTerm2.zip -d /tmp/iTerm
-  successfully mv /tmp/iTerm/iTerm.app /Applications
+  successfully brew cask install iterm2
 
 fancy_echo "Install oh-my-zsh, improve your zsh"
   successfully git clone git://github.com/dukex/oh-my-zsh.git ~/.oh-my-zsh
@@ -127,23 +118,13 @@ fancy_echo "Configure Vim, I'm not hipster"
   successfully git clone git://github.com/dukex/vimfiles.git ~/.vim
 
 fancy_echo "Download Sublime Text 2, everybody loves the mainstream"
-  successfully curl -L 'http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.1.dmg' -o /tmp/SublimeText.dmg
-  successfully open /tmp/SublimeText.dmg
-
-fancy_echo "Configure Sublime Text 2"
-  successfully mkdir -p "/Users/`whoami`/Library/Application Support/Sublime Text 2/Packages"
-  successfully git clone git://github.com/dukex/sublime-text-files.git "/Users/`whoami`/Library/Application Support/Sublime Text 2/Packages/User"
-  successfully mkdir -p "/Users/`whoami`/Library/Application Support/Sublime Text 2/Installed Packages"
-  successfully curl -L 'https://sublime.wbond.net/Package%20Control.sublime-package' -o "/Users/`whoami`/Library/Application Support/Sublime Text 2/Installed Packages/Package Control.sublime-package"
+  successfully brew cask install sublime-text
 
 fancy_echo "Install Mou, The missing Markdown editor for web developers"
-  successfully curl -L 'http://mouapp.com/download/Mou.zip' -o '/tmp/mou.zip'
-  successfully unzip /tmp/mou.zip -d /tmp/mou
-  successfully mv /tmp/mou/Mou.app /Applications
+  successfully brew cask install mou
 
 fancy_echo "Install Transmission, you know, torrents..."
-  successfully curl -L http://download.transmissionbt.com/files/Transmission-2.77.dmg -o /tmp/transmission.dmg
-  successfully open /tmp/transmission.dmg
+  successfully brew cask install transmission
 
 fancy_echo "Open Wunderlist link...."
   successfully open http://appstore.com/mac/Wunderlist
