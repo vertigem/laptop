@@ -14,14 +14,14 @@ if -f /etc/zshenv; then
 fi
 
 fancy_echo "Install Homebrew, a good OS X package manager ..."
-  successfully ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
+  successfully ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   successfully brew update
   successfully brew install caskroom/cask/brew-cask
 
 if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
   fancy_echo "Put Homebrew location earlier in PATH ..."
-    successfully echo "\n# recommended by brew doctor" >> ~/.zshrc
-    successfully echo "export PATH='/usr/local/bin:$PATH'\n" >> ~/.zshrc
+    successfully echo "# recommended by brew doctor" >> ~/.zshrc
+    successfully echo "export PATH='/usr/local/bin:$PATH'" >> ~/.zshrc
     successfully source ~/.zshrc
 fi
 
@@ -48,7 +48,8 @@ fancy_echo "Install watch, used to execute a program periodically and show the o
 
 fancy_echo "Install rbenv for changing Ruby versions ..."
   successfully brew install rbenv
-
+  successfully echo 'export RBENV_ROOT=/usr/local/var/rbenv'  >> ~/.rbenv
+  
   if ! grep -qs "rbenv init" ~/.zshrc; then
     successfully echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 
@@ -66,20 +67,9 @@ fancy_echo "Install ruby-build for installing Rubies ..."
 
 fancy_echo "Install GNU Compiler Collection, a necessary prerequisite to installing Ruby ..."
   successfully brew tap homebrew/dupes
-  successfully brew install apple-gcc42
-
-fancy_echo "Install Ruby 1.9.3-p392 ..."
-  CC=gcc-4.2 successfully rbenv install 1.9.3-p392
-
-fancy_echo "Set Ruby 1.9.3-p392 as global default Ruby ..."
-  successfully rbenv global 1.9.3-p392
-  successfully rbenv shell 1.9.3-p392
 
 fancy_echo "Update to latest Rubygems version ..."
   successfully gem update --system
-
-fancy_echo "Install critical Ruby gems for Rails development ..."
-  successfully gem install bundler foreman pg rails thin --no-document
 
 fancy_echo "Install GitHub CLI client ..."
   successfully brew install hub
@@ -89,9 +79,6 @@ fancy_echo "Install Heroku CLI client ..."
 
 fancy_echo "Install the heroku-config plugin for pulling config variables locally to be used as ENV variables ..."
   successfully heroku plugins:install git://github.com/ddollar/heroku-config.git
-
-fancy_echo "Login on heroku"
-  successfully heroku login
 
 if ! grep -qs "DO NOT EDIT BELOW THIS LINE" ~/.zshrc; then
   fancy_echo "Prepare ~/.zshrc "
@@ -111,20 +98,14 @@ fancy_echo "Create ~/code folder, because I started watching railscasts"
 
 fancy_echo "Config dotfiles, dukex amazing gitconfig, simple vimrc and the cool gemrc"
   successfully curl -L https://raw.github.com/dukex/dotfiles/master/gitconfig -o ~/.gitconfig
-  successfully curl -L https://raw.github.com/dukex/dotfiles/master/vimrc -o ~/.vimrc
   successfully curl -L https://raw.github.com/dukex/dotfiles/master/gemrc -o ~/.gemrc
 
 fancy_echo "Configure Vim, I'm not hipster"
-  successfully git clone git://github.com/dukex/vimfiles.git ~/.vim
-
-fancy_echo "Download Sublime Text 2, everybody loves the mainstream"
-  successfully brew cask install sublime-text
+  successfully curl https://raw.githubusercontent.com/dukex/spf13-vim/3.0/bootstrap.sh | sh
 
 fancy_echo "Install Mou, The missing Markdown editor for web developers"
   successfully brew cask install mou
-
-fancy_echo "Install Transmission, you know, torrents..."
-  successfully brew cask install transmission
-
-fancy_echo "Open Wunderlist link...."
-  successfully open http://appstore.com/mac/Wunderlist
+  
+fancy_echo "Install Chromium"
+  successfully brew cask install chromium
+  
